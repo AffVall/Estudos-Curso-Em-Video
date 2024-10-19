@@ -1,0 +1,7 @@
+Valeria;20
+Lidia;22
+Gustavo;41
+Davi;23
+Isadora;19
+Michael Jackson;66
+Alessandra;16
