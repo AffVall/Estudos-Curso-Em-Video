@@ -118,7 +118,9 @@ def ler_arquivo(nome):
     else:
         clear()
         titulo('Pessoas Cadastradas')
-        print(arq.read())
+        for linha in arq:
+            pessoa = linha.split(';')
+            print(f'Nome: {pessoa[0]:<70} Idade: {pessoa[1]:>2}')
         sleep(5)
         clear()
     arq.close()

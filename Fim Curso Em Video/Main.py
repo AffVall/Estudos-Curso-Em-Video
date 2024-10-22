@@ -24,7 +24,7 @@ while True:
         r = int(input('Digite a RAZÃO da sua PG: '))
         Uteis.pg(i, f, r)
 
-    #Valor Inteiro e Real
+    #Divisão entre Valor Inteiro e Real
     elif escolha == 113 or escolha == 2:
         #Inserindo valores
         i = Uteis.leia_int()
