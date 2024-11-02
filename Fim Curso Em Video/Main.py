@@ -1,19 +1,19 @@
 import Uteis
 from Menu import *
 
-ex = ('Fim', 98, 113, 114, 115)
-titulo('Benvindo ao Arquivo de aulas Curso Em Video')
+EX = ('FIM', 'PG', 'DIVISAO', 'URL', 'CADASTRO', 'CPF')
+titulo('Benvindo ao Arquivo de exercicios :D')
 while True:
-
-    escolha = op_menu(ex, 'Aula')
-
+    escolha = op_menu(EX, 'Aula')
     # Saindo do programa
-    if escolha == 0:
+    if escolha == EX[0] or escolha == 0 :
         titulo('Codigo encerrado.')
         break
 
+#
     #PG
-    elif escolha == 98 or escolha == 1:
+    elif escolha == EX[1] or escolha == 1:
+        clear()
         #Demonstração
         Uteis.pg()
         Uteis.pg(5, -5, 2)
@@ -23,21 +23,27 @@ while True:
         f = int(input('Digite o FIM da sua PG: '))
         r = int(input('Digite a RAZÃO da sua PG: '))
         Uteis.pg(i, f, r)
+        clear()
 
     #Divisão entre Valor Inteiro e Real
-    elif escolha == 113 or escolha == 2:
+    elif escolha == EX[2] or escolha == 2:
         #Inserindo valores
         i = Uteis.leia_int()
         r = Uteis.leia_float()
 
+        try: 
+            d = i/r
+            clear()
+            print(f'O valor INTEIRO é {i} e o valor REAL é {r} e a divisão entre eles é {d}')
+            Uteis.sleep(3)
+            clear()
+        except ZeroDivisionError: 
+            print('Não é possivel fazer divisão por ZERO.')
+
         #Demonstrando Valores
-        clear()
-        print(f'O valor INTEIRO é {i} e o valor REAL é {r}')
-        Uteis.sleep(3)
-        clear()
 
     #Verificando se URL está ativo
-    elif escolha == 114 or escolha == 3:
+    elif escolha == EX[3] or escolha == 3:
         Uteis.check_url('https://www.pudim.com.br/')
         while True:
             try:
@@ -54,14 +60,15 @@ while True:
                 print(f'ERRO>>> {erro.__cause__}')
             
     #Cadastro de pessoas
-    elif escolha == 115 or escolha == 4:
+    elif escolha == EX[4] or escolha == 4:
         arquivo = 'cadastro.txt'
-        opcoes = ('Sair' ,'Ver pessoas cadastradas', 'Cadastrar nova pessoa')
+        EX = ('Sair' ,'Ver pessoas cadastradas', 'Cadastrar nova pessoa')
 
+        clear()
         titulo('Menu de Cadastros')
         Uteis.arquivo_existe(arquivo)
         while True:
-            menu = op_menu(opcoes, 'Cadastro')
+            menu = op_menu(EX, 'Cadastro')
 
             #Sair
             if menu == 0 or menu == 'Sair':
@@ -79,3 +86,16 @@ while True:
                 idade = Uteis.leia_int('Escreva a IDADE da pessoa cadastrada: ')
                 Uteis.cadastrar_pessoa(arquivo, nome, idade)
             
+#Curso {Python 3 Completo}
+    #Gerar CPF
+    elif escolha == EX[5] or escolha == 5:
+        real_cpf = Uteis.verif_cpf()
+
+    
+
+
+
+
+
+    else:
+        print('Esta aula não existe'.center(90))

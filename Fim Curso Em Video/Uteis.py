@@ -70,7 +70,6 @@ def pg(inicio=0, fim=10, razao=1, valor = 0):
     print('FIM!')
     print('-=-'*30)
     sleep(2)
-    clear()
 
 def check_url(url):
     #Configurando URLLib para não checar Verificado
@@ -137,5 +136,27 @@ def cadastrar_pessoa(arq, nome='desconhecido', idade='-x-'):
             print(f'Algo deu errado na hora de escrever os dados.\nERRO>>> {erro.__class__}')
     print(arq, nome, idade)
 
-    
-    
+def verif_cpf(cpf_bruto='746.824.890-70'):
+    cpf_ref = cpf_bruto.replace(".", "").replace("-", "")
+            
+    cont_regress = 10
+    calculo = 0
+    for c in cpf_ref:
+        mult = int(c) * cont_regress
+        calculo += mult
+        cont_regress -= 1
+        if cont_regress == 1:
+            break
+    calculo = (calculo*10) % 11
+    if calculo > 9:
+        calculo = 0
+
+    if cpf_ref[9] == str(calculo):
+        p1 = True
+    else:
+        p1 = False
+    print(p1)
+
+
+
+        

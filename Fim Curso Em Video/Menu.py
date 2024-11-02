@@ -18,14 +18,15 @@ def op_menu(tup= ('op1', '0p2'), txt={'texto não inserido'}):
         print(f'{cont}-> {v}')
         cont += 1
 
-    while True:
-        print('-=-'*30)
-        try:
-            ret = int(input(f'{txt}: Digite o numero que deseja acessar \n'.center(90)))
-            os.system('cls')
-            if ret in tup or ret >= 0 and ret <= len(tup):
-                return ret
-            else:
-                print('Esta Aula não existe.'.center(90))
-        except:
-            print('Digite um valor valido')
+    print('-=-'*30)
+    ret = input(f'{txt}: Digite o numero que deseja acessar \n'.center(90))
+
+    try:
+        ret = int(ret)
+        if ret >= 0 and ret <= len(tup):
+            return ret
+
+    except ValueError:
+        ret = ret.upper()
+        if ret in tup:
+            return ret
